@@ -115,6 +115,51 @@ TRAVEL_STYLES = {
 
 st.markdown(
     """
+    /* Fix text visibility on mobile and desktop */
+
+.stApp,
+.stApp p,
+.stApp label,
+.stApp .stMarkdown,
+.stApp [data-testid="stCaptionContainer"] {
+    color: #263648 !important;
+}
+
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6 {
+    color: #17324D !important;
+}
+
+.stApp [data-testid="stMetricLabel"],
+.stApp [data-testid="stMetricValue"] {
+    color: #17324D !important;
+}
+
+.stApp input,
+.stApp textarea {
+    color: #263648 !important;
+    background-color: #FFFFFF !important;
+}
+
+.stApp [data-testid="stExpander"] summary {
+    color: #17324D !important;
+}
+
+.stApp [data-testid="stWidgetLabel"] p {
+    color: #263648 !important;
+}
+
+@media (max-width: 768px) {
+    .stApp p,
+    .stApp label,
+    .stApp [data-testid="stWidgetLabel"] p {
+        color: #263648 !important;
+    }
+}
     <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
