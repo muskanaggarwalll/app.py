@@ -350,6 +350,36 @@ if destination == "Manali":
             selected_attractions.append(attraction)
 
     st.session_state["selected_manali_attractions"] = selected_attractions
+# 4A. GOA ATTRACTIONS
+
+if destination == "Goa":
+    st.divider()
+    st.header("🏖️ Explore Goa Attractions")
+    st.write("Select the places you want to visit during your trip.")
+
+    goa_attractions = [
+        "Baga Beach & Calangute Beach",
+        "Fort Aguada",
+        "Chapora Fort",
+        "Anjuna Beach",
+        "Fontainhas (Panaji)",
+        "Palolem Beach",
+        "Agonda Beach",
+        "Cabo de Rama Fort",
+        "Cola Beach",
+        "Basilica of Bom Jesus",
+        "Se Cathedral",
+        "Dudhsagar Falls",
+    ]
+
+    selected_goa_attractions = []
+
+    for attraction in goa_attractions:
+        if st.checkbox(attraction, key=f"goa_{attraction}"):
+            selected_goa_attractions.append(attraction)
+
+    st.session_state["selected_goa_attractions"] = selected_goa_attractions
+
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
 st.subheader("Explore all five destinations")
