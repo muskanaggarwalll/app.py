@@ -1101,14 +1101,85 @@ with st.form("wander_nest_offer_form"):
                 "additional_requests": additional_requests
             }
 
-            st.success(
-                "Your offer request has been recorded successfully! 💙"
-            )
+                # ---------- SAMPLE TRIP PRICE CALCULATION ----------
 
-            st.info(
-                "This is a demo request. It has not been emailed "
-                "to a travel agency or permanently saved."
-            )
+                base_prices = {
+                    "Goa": 15000,
+                    "Kerala": 15000,
+                    "Manali": 18000,
+                    "Shimla": 18000,
+                    "Jaipur": 12000,
+                    "Other": 10000
+                }
+
+                coupon_discounts = {
+                    "BEACH20": 20,
+                    "MOUNTAIN25": 25,
+                    "CULTURE20": 20
+                }
+
+                # Calculate the original package price
+                original_price = base_prices[destination] * int(travellers)
+
+                # Get the selected coupon
+                selected_coupon = st.session_state.get(
+                    "selected_coupon", ""
+                )
+
+                # Calculate the discount
+                discount_percent = coupon_discounts.get(
+                    selected_coupon, 0
+                )
+
+                discount_amount = round(
+                    original_price * discount_percent / 100
+                )
+
+                final_amount = original_price - discount_amount
+
+                # Display the price breakdown
+                st.markdown("---")
+                st.subheader("💰 Your Estimated Trip Cost")
+
+                st.write(f"**Destination:** {destination}")
+                st.write(f"**Number of Travellers:** {int(travellers)}")
+                st.write(f"**Original Price:** ₹{original_price:,}")
+
+                if selected_coupon and discount_percent > 0:
+                    st.write(f"**Coupon Code:** {selected_coupon}")
+                    st.write(
+                        f"**Discount ({discount_percent}%):** "
+                        f"-₹{discount_amount:,}"
+                    )
+                else:
+                    st.write("**Coupon Code:** No coupon selected")
+
+                st.markdown(
+                    f"""
+                    <div style="
+                        background-color:#E8F5F1;
+                        padding:20px;
+                        border-radius:12px;
+                        text-align:center;
+                        border:1px solid #C5E5DB;
+                    ">
+                        <p style="color:#526777;font-size:16px;">
+                            ESTIMATED FINAL AMOUNT
+                        </p>
+                        <h1 style="color:#087E8B;">
+                            ₹{final_amount:,}
+                        </h1>
+                        <p style="color:#16804A;font-size:18px;">
+                            You save ₹{discount_amount:,}
+                        </p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+                st.caption(
+                    "Sample calculation only. Actual travel prices may vary."
+                )
 
 # ==========================================
 # END OF OFFERS & SPECIAL DEALS
