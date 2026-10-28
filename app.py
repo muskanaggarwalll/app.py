@@ -352,7 +352,7 @@ if destination == "Manali":
     st.session_state["selected_manali_attractions"] = selected_attractions
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
-
+st.subheader("Explore all five destinations")
 destination_columns = st.columns(len(DESTINATIONS))
 
 for column, (name, details) in zip(
@@ -364,7 +364,6 @@ for column, (name, details) in zip(
         st.markdown(f"**{name}**")
         st.caption(details["region"])
 
-    st.rerun()
 
 # ------------------------------------------------------------
 # 6. OPTIONAL LOCATION ACCESS
