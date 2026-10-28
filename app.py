@@ -1102,8 +1102,7 @@ with st.form("wander_nest_offer_form"):
             }
 
                 # ---------- SAMPLE TRIP PRICE CALCULATION ----------
-
-                base_prices = {
+            base_prices = {
                     "Goa": 15000,
                     "Kerala": 15000,
                     "Manali": 18000,
