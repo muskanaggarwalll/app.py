@@ -318,11 +318,7 @@ with info_col:
     st.write(place["description"])
     st.markdown(f"**Best for:** {place['best_for']}")
     st.divider()
-    st.markdown("**Estimated daily costs per person**")
-    st.write(f"🍽️ Food: ₹{place['food']:,}")
-    st.write(f"🎟️ Activities: ₹{place['activities']:,}")
-    st.write(f"🏨 Hotel: ₹{place['hotel']:,} per room/night")
-    st.write(f"🚆 Transport estimate: ₹{place['transport']:,} per person")
+    
 
 # ------------------------------------------------------------
 # 5. MANALI ATTRACTIONS
