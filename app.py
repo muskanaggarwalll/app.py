@@ -22,18 +22,19 @@ st.set_page_config(
 
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
-nav_col1, nav_col2, nav_col3 = st.columns([2, 5, 2])
+st.markdown("---")
+
+nav_col1, nav_col2 = st.columns([2, 5])
 
 with nav_col1:
     st.markdown("### ✈ WANDERNEST")
 
 with nav_col2:
     st.markdown(
-        "[Discover](#discover)　 [Plan](#plan)　 [Budget](#budget)　 [Offers](#offers)"
+        "Discover　 |　 Plan　 |　 Budget　 |　 Offers"
     )
 
-with nav_col3:
-    st.button("Plan a trip", key="wn_nav_plan")
+st.markdown("---")
 
 # ------------------------------------------------------------
 # 1. DESTINATION DATABASE
