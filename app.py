@@ -1134,8 +1134,8 @@ with st.form("wander_nest_offer_form"):
             final_amount = original_price - discount_amount
 
                 # Display the price breakdown
-                st.markdown("---")
-                st.subheader("💰 Your Estimated Trip Cost")
+            st.markdown("---")
+            st.subheader("💰 Your Estimated Trip Cost")
 
                 st.write(f"**Destination:** {destination}")
                 st.write(f"**Number of Travellers:** {int(travellers)}")
