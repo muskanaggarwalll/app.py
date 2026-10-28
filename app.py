@@ -468,14 +468,33 @@ with planner_left:
         key="start_date",
     )
 
+```python
 with planner_right:
-    travellers = st.number_input(
-        "Number of travellers",
+    adults = st.number_input(
+        "Number of adults",
         min_value=1,
         max_value=20,
         value=2,
         step=1,
+        key="number_of_adults",
     )
+
+    kids = st.number_input(
+        "Number of kids",
+        min_value=0,
+        max_value=20,
+        value=0,
+        step=1,
+        key="number_of_kids",
+    )
+
+    travellers = adults + kids
+
+    st.caption(
+        f"Total travellers: {travellers} "
+        f"({adults} adults, {kids} kids)"
+    )
+```
 
     end_date = st.date_input(
         "Return date",
