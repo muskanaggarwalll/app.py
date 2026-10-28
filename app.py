@@ -1139,15 +1139,15 @@ with st.form("wander_nest_offer_form"):
             st.write(f"**Destination:** {destination}")
             st.write(f"**Number of Travellers:** {int(travellers)}")
             st.write(f"**Original Price:** ₹{original_price:,}")
-
-                if selected_coupon and discount_percent > 0:
-                    st.write(f"**Coupon Code:** {selected_coupon}")
-                    st.write(
-                        f"**Discount ({discount_percent}%):** "
-                        f"-₹{discount_amount:,}"
-                    )
-                else:
-                    st.write("**Coupon Code:** No coupon selected")
+            
+            if selected_coupon and discount_percent > 0:
+                st.write(f"**Coupon Code:** {selected_coupon}")
+                st.write(
+                    f"**Discount ({discount_percent}%):** "
+                    f"-₹{discount_amount:,}"
+                )
+            else:
+                st.write("**Coupon Code:** No coupon selected")
 
                 st.markdown(
                     f"""
