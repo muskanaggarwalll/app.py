@@ -353,8 +353,6 @@ if destination == "Manali":
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
 
-st.subheader("Explore all five destinations")
-
 destination_columns = st.columns(len(DESTINATIONS))
 
 for column, (name, details) in zip(
