@@ -86,7 +86,7 @@ DESTINATIONS = {
             ("Day 3", "Visit a local market and enjoy a relaxed morning."),
         ],
     },
-    "Shimla": {
+    "Shimla": {   }
         "region": "Classic Hill Station",
         "description": "Mountain air, scenic walks, charming streets and cafés.",
         "food": 700,
