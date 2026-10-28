@@ -22,17 +22,47 @@ st.set_page_config(
 
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
-st.markdown("---")
+st.markdown(
+    """
+    <div style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:12px 0;
+        margin-bottom:12px;
+        font-family:sans-serif;
+    ">
+        <div style="
+            font-size:23px;
+            font-weight:800;
+            color:#087e8b;
+            white-space:nowrap;
+        ">
+            ✈ WANDERNEST
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-nav_col1, nav_col2 = st.columns([2, 5])
+nav_col1, nav_col2, nav_col3, nav_col4, nav_col5 = st.columns(
+    [1.2, 1, 1, 1, 1.5]
+)
 
 with nav_col1:
-    st.markdown("### ✈ WANDERNEST")
+    st.markdown("Discover")
 
 with nav_col2:
-    st.markdown(
-        "Discover　 |　 Plan　 |　 Budget　 |　 Offers"
-    )
+    st.markdown("Plan")
+
+with nav_col3:
+    st.markdown("Budget")
+
+with nav_col4:
+    st.markdown("Offers")
+
+with nav_col5:
+    st.button("Plan a trip →", key="wn_nav_plan")
 
 st.markdown("---")
 
