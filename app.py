@@ -1021,7 +1021,6 @@ with st.form("wander_nest_offer_form"):
 # ==========================================
 # END OF OFFERS & SPECIAL DEALS
 # ==========================================
-```
 st.divider()
 st.header("05 · Your suggested itinerary")
 
