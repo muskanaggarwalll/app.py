@@ -1136,10 +1136,9 @@ with st.form("wander_nest_offer_form"):
                 # Display the price breakdown
             st.markdown("---")
             st.subheader("💰 Your Estimated Trip Cost")
-
-                st.write(f"**Destination:** {destination}")
-                st.write(f"**Number of Travellers:** {int(travellers)}")
-                st.write(f"**Original Price:** ₹{original_price:,}")
+            st.write(f"**Destination:** {destination}")
+            st.write(f"**Number of Travellers:** {int(travellers)}")
+            st.write(f"**Original Price:** ₹{original_price:,}")
 
                 if selected_coupon and discount_percent > 0:
                     st.write(f"**Coupon Code:** {selected_coupon}")
