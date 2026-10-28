@@ -1,96 +1,125 @@
-import streamlit as st
-from datetime import date, timedelta
+            # Optional services are added only when selected by the user.
+            breakfast_cost = 350 * int(travellers) * int(trip_days) if breakfast else 0
+            insurance_cost = 250 * int(travellers) if insurance else 0
+            guided_cost = 600 * int(travellers) if activities_addon else 0
 
-# ------------------------------------------------------------
-# WanderNest Travels | Python Programming for Business Students
-# A single-file Streamlit travel planning application.
-# ------------------------------------------------------------
+            subtotal = (
+                hotel_cost + transport_cost + food_cost + activity_cost
+                + breakfast_cost + insurance_cost + guided_cost
+            )
+            estimated_tax = subtotal * 0.05
+            total_cost = subtotal + estimated_tax
+            per_person_cost = total_cost / int(travellers)
 
-# Set the browser tab and use a wide layout for a modern website.
-st.set_page_config(
-    page_title="WanderNest Travels",
-    page_icon="✈️",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
+            # Use conditional logic to give the customer a simple budget category.
+            if per_person_cost < 10000:
+                budget_label = "Budget-friendly"
+                budget_message = "Your choices keep the estimated per-person cost on the lower side."
+            elif per_person_cost < 25000:
+                budget_label = "Balanced trip"
+                budget_message = "This estimate sits in a mid-range travel budget."
+            else:
+                budget_label = "Premium experience"
+                budget_message = "Your selected options create a higher-comfort travel estimate."
 
-# Keep destination information and sample prices in dictionaries.
-# Prices are illustrative estimates in Indian rupees, not live quotes.
-DESTINATIONS = {
-    "Goa": {
-        "region": "Coastal escape",
-        "description": "Golden beaches, sunset cafés and relaxed coastal days.",
-        "daily_food": 900,
-        "activities": 1200,
-        "hotel_multiplier": 1.00,
-        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=85",
-        "best_for": "Beaches, friends and sunsets",
-        "itinerary": ["Beach walk and local market", "Waterfront sightseeing and café time", "Sunset point and relaxed evening"],
-    },
-    "Manali": {
-        "region": "Mountain retreat",
-        "description": "Pine forests, mountain views and cosy cafés in the hills.",
-        "daily_food": 750,
-        "activities": 1400,
-        "hotel_multiplier": 1.05,
-        "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1000&q=85",
-        "best_for": "Mountains, nature and adventure",
-        "itinerary": ["Explore the town and riverside", "Mountain viewpoints and local cafés", "Leisurely walk and souvenir shopping"],
-    },
-    "Jaipur": {
-        "region": "Heritage & culture",
-        "description": "Pink-hued streets, historic architecture and colourful bazaars.",
-        "daily_food": 700,
-        "activities": 1100,
-        "hotel_multiplier": 0.95,
-        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=1000&q=85",
-        "best_for": "History, architecture and shopping",
-        "itinerary": ["Explore the old city and local bazaar", "Visit heritage landmarks and gardens", "Try local food and shop for souvenirs"],
-    },
-    "Kerala": {
-        "region": "Nature & backwaters",
-        "description": "Lush greenery, peaceful waterways and tropical landscapes.",
-        "daily_food": 800,
-        "activities": 1500,
-        "hotel_multiplier": 1.10,
-        "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=85",
-        "best_for": "Nature, slow travel and scenic stays",
-        "itinerary": ["Explore the local area and gardens", "Enjoy a backwater or nature experience", "Visit a local market and relax"],
-    },
-    "Shimla": {
-        "region": "Classic hill station",
-        "description": "Mountain air, colonial-era streets and scenic walks.",
-        "daily_food": 700,
-        "activities": 1000,
-        "hotel_multiplier": 0.90,
-        "image": "https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=1000&q=85",
-        "best_for": "Cool weather, walks and weekend breaks",
-        "itinerary": ["Walk along the main promenade", "Discover viewpoints and nearby nature", "Enjoy a relaxed café stop before departure"],
-    },
-}
+            st.divider()
+            st.markdown('<div class="section-kicker">Your estimate</div>', unsafe_allow_html=True)
+            st.header(f"{destination}: your trip at a glance")
+            metric_one, metric_two, metric_three = st.columns(3)
+            metric_one.metric("Estimated total", f"₹{total_cost:,.0f}")
+            metric_two.metric("Per person", f"₹{per_person_cost:,.0f}")
+            metric_three.metric("Trip length", f"{int(trip_days)} days")
 
-# These CSS rules provide the site's colour palette, spacing, cards and buttons.
-st.markdown(
-    
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+            st.success(f"**{budget_label}** — {budget_message}")
+            st.caption(
+                f"Departure: {departure_date.strftime('%d %B %Y')} · "
+                f"{int(travellers)} traveller(s) · {rooms_needed} room(s) estimated"
+            )
 
-    :root { --navy: #102a43; --teal: #087e8b; --mint: #dff4ef; --cream: #f7f8f5; }
-    .stApp { background: #f6f8f7; color: var(--navy); }
-    .block-container { max-width: 1200px; padding-top: 1.5rem; padding-bottom: 3rem; }
-    h1, h2, h3 { color: var(--navy) !important; }
-    h1, h2 { font-family: 'Playfair Display', Georgia, serif !important; }
-    p, label, li, div { font-family: 'DM Sans', Arial, sans-serif; }
-    [data-testid="stWidgetLabel"] p { color: #243b53 !important; font-weight: 600; }
-    .brand { font-size: 1.05rem; letter-spacing: .08em; font-weight: 700; color: #087e8b; }
-    .hero {
-        padding: 3rem 2.7rem; border-radius: 24px; color: white;
-        background: linear-gradient(100deg, rgba(10,35,55,.92), rgba(10,67,78,.64)),
-        url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1800&q=90');
-        background-size: cover; background-position: center;
-        min-height: 310px; display: flex; flex-direction: column; justify-content: center;
-        box-shadow: 0 15px 40px rgba(16,42,67,.14);
-    }
-    .hero h1 { color: white !important; font-size: clamp(2.3rem, 5vw, 4.1rem); line-height: 1.08; margin: .5rem 0 1rem 0; }
-    .hero p { color: #f0fdfa; font-size: 1.08rem; max-width: 620px; }
-    .eyebrow { text-transform: uppercase; letter-spacing: .17em; font-size: .78rem; font-weight: 700; color: #9ee8dc; }
+            # Display each cost item so the estimate is transparent.
+            breakdown = [
+                ("Accommodation", hotel_cost),
+                ("Round-trip transport", transport_cost),
+                ("Food estimate", food_cost),
+                ("Standard activities", activity_cost),
+                ("Breakfast add-on", breakfast_cost),
+                ("Travel insurance", insurance_cost),
+                ("Guided experiences", guided_cost),
+                ("Illustrative tax / buffer (5%)", estimated_tax),
+                ("TOTAL ESTIMATE", total_cost),
+            ]
+            st.subheader("Where your budget goes")
+            for label, amount in breakdown:
+                left, right = st.columns([3, 1])
+                left.write(f"**{label}**" if label == "TOTAL ESTIMATE" else label)
+                # Use safe Streamlit markdown formatting for each amount.
+                right.markdown(f"<div style='text-align:right;font-weight:700'>₹{amount:,.0f}</div>", unsafe_allow_html=True)
+
+            st.caption(
+                "Planning estimate only. Rates are illustrative and do not represent live hotel, transport, "
+                "activity, insurance or tax quotations. Accommodation is estimated per room per night."
+            )
+
+            # Create a simple itinerary that repeats destination-specific ideas for longer trips.
+            st.divider()
+            st.markdown('<div class="section-kicker">Made for your getaway</div>', unsafe_allow_html=True)
+            st.subheader("Suggested itinerary")
+            day_ideas = destination_info["itinerary"]
+            for day_number in range(1, int(trip_days) + 1):
+                idea = day_ideas[(day_number - 1) % len(day_ideas)]
+                st.markdown(
+                    f"<div class='info-box' style='margin-bottom:.6rem'><strong>Day {day_number}</strong>"
+                    f"<br><span style='color:#526777'>{idea}</span></div>",
+                    unsafe_allow_html=True,
+                )
+
+            # Prepare a text summary the user can save to their computer.
+            summary_lines = [
+                "WANDERNEST TRAVELS — TRIP PLAN",
+                f"Destination: {destination}",
+                f"Departure date: {departure_date.strftime('%d %B %Y')}",
+                f"Travellers: {int(travellers)}",
+                f"Duration: {int(trip_days)} days",
+                f"Stay preference: {hotel_category}",
+                f"Main transport: {transport}",
+                "",
+                "ESTIMATED COST BREAKDOWN",
+            ]
+            summary_lines.extend(
+                [f"{label}: INR {amount:,.0f}" for label, amount in breakdown]
+            )
+            summary_lines.extend(["", "SUGGESTED ITINERARY"])
+            summary_lines.extend(
+                [
+                    f"Day {day_number}: {day_ideas[(day_number - 1) % len(day_ideas)]}"
+                    for day_number in range(1, int(trip_days) + 1)
+                ]
+            )
+            summary_lines.extend(["", "Note: Estimates are illustrative, not live quotations."])
+
+            st.download_button(
+                "⬇️ Download my trip plan",
+                data="\n".join(summary_lines),
+                file_name="wandernest_trip_plan.txt",
+                mime="text/plain",
+                use_container_width=True,
+            )
+
+    except (ValueError, TypeError, ZeroDivisionError) as error:
+        # Catch common calculation errors and display a helpful message instead of crashing.
+        st.error(
+            "We couldn't calculate this trip. Please review your selections and try again. "
+            f"Details: {error}"
+        )
+
+st.write("")
+st.divider()
+footer_left, footer_right = st.columns([2, 1])
+with footer_left:
+    st.markdown("**WANDERNEST TRAVELS** · Plan better. Travel further.")
+    st.caption("A student Python project demonstrating interactive business calculations.")
+with footer_right:
+    st.markdown(
+        "<div style='text-align:right;color:#647987;font-size:.8rem'>Explore thoughtfully. Travel confidently. 🌿</div>",
+        unsafe_allow_html=True,
+    )
