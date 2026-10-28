@@ -363,12 +363,7 @@ for column, (name, details) in zip(
         st.image(details["image"], use_container_width=True)
         st.markdown(f"**{name}**")
         st.caption(details["region"])
-if st.button(
-    f"Explore {name}",
-    key=f"explore_{name}",
-    use_container_width=True,
-):
-    st.session_state["selected_destination"] = name
+
     st.rerun()
 
 # ------------------------------------------------------------
