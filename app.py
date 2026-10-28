@@ -1125,15 +1125,13 @@ with st.form("wander_nest_offer_form"):
                 )
 
                 # Calculate the discount
-                discount_percent = coupon_discounts.get(
+            discount_percent = coupon_discounts.get(
                     selected_coupon, 0
                 )
-
-                discount_amount = round(
+            discount_amount = round(
                     original_price * discount_percent / 100
                 )
-
-                final_amount = original_price - discount_amount
+            final_amount = original_price - discount_amount
 
                 # Display the price breakdown
                 st.markdown("---")
