@@ -19,7 +19,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-```python
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
 st.markdown(
@@ -53,7 +52,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-```
+
 # ------------------------------------------------------------
 # 1. DESTINATION DATABASE
 # Sample prices are estimates, not live travel quotes.
