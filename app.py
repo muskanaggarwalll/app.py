@@ -19,39 +19,21 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
-st.markdown(
-    """
-    <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:18px 24px;
-        margin-bottom:25px;
-        background:#ffffff;
-        border:1px solid #e8e8e8;
-        border-radius:14px;
-        font-family:sans-serif;
-    ">
-        <div style="
-            font-size:23px;
-            font-weight:800;
-            color:#087e8b;
-        ">
-            ✈ WANDERNEST
-        </div>
+nav_col1, nav_col2, nav_col3 = st.columns([2, 5, 2])
 
-        <div style="
-            font-size:15px;
-            color:#334155;
-        ">
-            Discover &nbsp;&nbsp; Plan &nbsp;&nbsp; Budget &nbsp;&nbsp; Offers
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+with nav_col1:
+    st.markdown("### ✈ WANDERNEST")
+
+with nav_col2:
+    st.markdown(
+        "[Discover](#discover)　 [Plan](#plan)　 [Budget](#budget)　 [Offers](#offers)"
+    )
+
+with nav_col3:
+    st.button("Plan a trip", key="wn_nav_plan")
 
 # ------------------------------------------------------------
 # 1. DESTINATION DATABASE
