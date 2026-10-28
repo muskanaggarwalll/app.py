@@ -1110,8 +1110,7 @@ with st.form("wander_nest_offer_form"):
                     "Jaipur": 12000,
                     "Other": 10000
                 }
-
-                coupon_discounts = {
+            coupon_discounts = {
                     "BEACH20": 20,
                     "MOUNTAIN25": 25,
                     "CULTURE20": 20
