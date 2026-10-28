@@ -71,7 +71,7 @@ DESTINATIONS = {
 
 # These CSS rules provide the site's colour palette, spacing, cards and buttons.
 st.markdown(
-    """
+    
     <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
