@@ -493,7 +493,6 @@ with planner_right:
         f"Total travellers: {travellers} "
         f"({adults} adults, {kids} kids)"
     )
-```
 
     end_date = st.date_input(
         "Return date",
