@@ -468,7 +468,6 @@ with planner_left:
         key="start_date",
     )
 
-```python
 with planner_right:
     adults = st.number_input(
         "Number of adults",
