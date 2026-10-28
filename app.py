@@ -26,7 +26,7 @@ st.set_page_config(
 # ------------------------------------------------------------
 
 DESTINATIONS = {  }
-    "Goa": {
+"Goa": {
         "region": "Coastal Escape",
         "description": "Golden beaches, sunset cafés, coastal drives and relaxed days.",
         "food": 900,
@@ -41,7 +41,7 @@ DESTINATIONS = {  }
             ("Day 3", "Enjoy a relaxed morning, souvenir shopping and departure."),
         ],
     },
-    "Manali": {
+"Manali": {
         "region": "Mountain Retreat",
         "description": "Pine forests, mountain views, riverside walks and cosy cafés.",
         "food": 750,
@@ -56,7 +56,7 @@ DESTINATIONS = {  }
             ("Day 3", "Take a leisurely walk and shop for souvenirs."),
         ],
     },
-    "Jaipur": {
+"Jaipur": {
         "region": "Heritage and Culture",
         "description": "Historic architecture, pink-hued streets and colourful bazaars.",
         "food": 700,
@@ -71,7 +71,7 @@ DESTINATIONS = {  }
             ("Day 3", "Enjoy shopping, photography and a relaxed departure."),
         ],
     },
-    "Kerala": {
+"Kerala": {
         "region": "Nature and Backwaters",
         "description": "Lush greenery, peaceful waterways and tropical landscapes.",
         "food": 800,
@@ -86,7 +86,7 @@ DESTINATIONS = {  }
             ("Day 3", "Visit a local market and enjoy a relaxed morning."),
         ],
     },
-    "Shimla": {   }
+"Shimla": {   }
         "region": "Classic Hill Station",
         "description": "Mountain air, scenic walks, charming streets and cafés.",
         "food": 700,
