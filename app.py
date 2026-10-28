@@ -731,7 +731,7 @@ with planner_right:
     adults = st.number_input(
         "Number of adults",
         min_value=1,
-        max_value=20,
+        max_value=50,
         value=2,
         step=1,
         key="number_of_adults",
@@ -740,7 +740,7 @@ with planner_right:
     kids = st.number_input(
         "Number of kids",
         min_value=0,
-        max_value=20,
+        max_value=50,
         value=0,
         step=1,
         key="number_of_kids",
