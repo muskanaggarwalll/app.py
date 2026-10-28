@@ -889,7 +889,140 @@ st.caption(
 # ------------------------------------------------------------
 # 10. SUGGESTED ITINERARY
 # ------------------------------------------------------------
+```python
+# ==========================================
+# 04A. OFFERS & SPECIAL DEALS
+# ==========================================
 
+st.divider()
+
+st.header("🎁 Offers & Special Deals")
+
+st.write(
+    "Discover exciting travel experiences and request "
+    "a personalised offer for your next adventure!"
+)
+
+offer1, offer2, offer3 = st.columns(3)
+
+with offer1:
+    st.image(
+        "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"
+        "?auto=format&fit=crop&w=700&q=80",
+        use_container_width=True
+    )
+    st.subheader("🌴 Beach Escapes")
+    st.write("Explore Goa and Kerala with relaxing beach experiences.")
+
+with offer2:
+    st.image(
+        "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23"
+        "?auto=format&fit=crop&w=700&q=80",
+        use_container_width=True
+    )
+    st.subheader("🏔️ Mountain Getaways")
+    st.write("Discover the beauty of Manali and Shimla.")
+
+with offer3:
+    st.image(
+        "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a"
+        "?auto=format&fit=crop&w=700&q=80",
+        use_container_width=True
+    )
+    st.subheader("🏰 Cultural Adventures")
+    st.write("Experience Jaipur's heritage, culture and local markets.")
+
+st.markdown("---")
+
+st.subheader("💙 Request a Personalised Offer")
+
+with st.form("wander_nest_offer_form"):
+
+    customer_name = st.text_input("Your Name")
+    customer_email = st.text_input("Your Email")
+
+    destination = st.selectbox(
+        "Preferred Destination",
+        ["Goa", "Kerala", "Manali", "Shimla", "Jaipur", "Other"]
+    )
+
+    travel_dates = st.text_input(
+        "Preferred Travel Dates",
+        placeholder="e.g. 15–18 December"
+    )
+
+    travellers = st.number_input(
+        "Number of Travellers",
+        min_value=1,
+        max_value=50,
+        value=2
+    )
+
+    budget = st.selectbox(
+        "Estimated Trip Budget",
+        [
+            "Below ₹5,000",
+            "₹5,000–₹10,000",
+            "₹10,000–₹20,000",
+            "₹20,000–₹50,000",
+            "Above ₹50,000"
+        ]
+    )
+
+    offer_type = st.selectbox(
+        "Preferred Offer",
+        [
+            "Budget-Friendly Package",
+            "Hotel Offers",
+            "Family Holiday",
+            "Couple Getaway",
+            "Adventure Activities",
+            "Any Available Offer"
+        ]
+    )
+
+    additional_requests = st.text_area(
+        "Additional Requirements (Optional)"
+    )
+
+    submitted = st.form_submit_button("🎁 Request My Offer")
+
+    if submitted:
+
+        if not customer_name.strip():
+            st.error("Please enter your name.")
+
+        elif (
+            "@" not in customer_email
+            or "." not in customer_email
+        ):
+            st.error("Please enter a valid email address.")
+
+        else:
+            st.session_state["latest_offer_request"] = {
+                "name": customer_name.strip(),
+                "email": customer_email.strip(),
+                "destination": destination,
+                "travel_dates": travel_dates,
+                "travellers": int(travellers),
+                "budget": budget,
+                "offer_type": offer_type,
+                "additional_requests": additional_requests
+            }
+
+            st.success(
+                "Your offer request has been recorded successfully! 💙"
+            )
+
+            st.info(
+                "This is a demo request. It has not been emailed "
+                "to a travel agency or permanently saved."
+            )
+
+# ==========================================
+# END OF OFFERS & SPECIAL DEALS
+# ==========================================
+```
 st.divider()
 st.header("05 · Your suggested itinerary")
 
