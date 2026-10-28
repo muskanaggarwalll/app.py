@@ -325,6 +325,31 @@ with info_col:
     st.write(f"🚆 Transport estimate: ₹{place['transport']:,} per person")
 
 # ------------------------------------------------------------
+# 5. MANALI ATTRACTIONS
+
+if destination == "Manali":
+    st.divider()
+    st.header("🏔️ Explore Manali Attractions")
+    st.write("Select the places you want to visit during your trip.")
+
+    manali_attractions = [
+        "Hidimba Devi Temple",
+        "Solang Valley",
+        "Old Manali",
+        "Atal Tunnel & Sissu",
+        "Jogini Waterfall",
+        "Vashisht Village & Hot Springs",
+        "Mall Road",
+        "Naggar Castle",
+    ]
+
+    selected_attractions = []
+
+    for attraction in manali_attractions:
+        if st.checkbox(attraction, key=f"manali_{attraction}"):
+            selected_attractions.append(attraction)
+
+    st.session_state["selected_manali_attractions"] = selected_attractions
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
 
