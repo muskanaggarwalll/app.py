@@ -1117,7 +1117,7 @@ with st.form("wander_nest_offer_form"):
                 }
 
                 # Calculate the original package price
-                original_price = base_prices[destination] * int(travellers)
+            original_price = base_prices[destination] * int(travellers)
 
                 # Get the selected coupon
                 selected_coupon = st.session_state.get(
