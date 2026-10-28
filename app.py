@@ -862,11 +862,23 @@ with st.expander("View detailed budget breakdown"):
     st.write(f"**Travel style:** {travel_style}")
     st.write(f"**Travellers:** {traveller_count}")
     st.write(f"**Hotel rooms:** {room_total}")
+
+    st.divider()
+    st.markdown("### Estimated daily costs per person")
+
+    place = DESTINATIONS[destination]
+
+    st.write(f"🍽️ Food: ₹{place['food']:,}")
+    st.write(f"🎟️ Activities: ₹{place['activities']:,}")
+    st.write(f"🏨 Hotel: ₹{place['hotel']:,} per room/night")
+    st.write(f"🚆 Transport: ₹{place['transport']:,} per person")
+
+    st.divider()
     st.write(f"**Hotel estimate:** ₹{hotel_cost:,}")
     st.write(f"**Food estimate:** ₹{food_cost:,}")
     st.write(f"**Activities estimate:** ₹{activity_cost:,}")
     st.write(f"**Transport estimate:** ₹{transport_cost:,}")
-    st.divider()
+
     st.subheader(f"Estimated total: ₹{estimated_total:,}")
 
 st.caption(
