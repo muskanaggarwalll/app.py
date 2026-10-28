@@ -901,35 +901,128 @@ st.write(
     "Discover exciting travel experiences and request "
     "a personalised offer for your next adventure!"
 )
+```python
+# ---------- DISCOUNT COUPON CARDS ----------
 
 offer1, offer2, offer3 = st.columns(3)
 
-with offer1:
-    st.image(
-        "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"
-        "?auto=format&fit=crop&w=700&q=80",
-        use_container_width=True
-    )
-    st.subheader("🌴 Beach Escapes")
-    st.write("Explore Goa and Kerala with relaxing beach experiences.")
+offers = [
+    {
+        "title": "🌴 Beach Escapes",
+        "destination": "Goa & Kerala",
+        "original": 15000,
+        "discount": 20,
+        "coupon": "BEACH20",
+        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        "title": "🏔️ Mountain Getaways",
+        "destination": "Manali & Shimla",
+        "original": 18000,
+        "discount": 25,
+        "coupon": "MOUNTAIN25",
+        "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        "title": "🏰 Cultural Adventures",
+        "destination": "Jaipur & more",
+        "original": 12000,
+        "discount": 20,
+        "coupon": "CULTURE20",
+        "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=700&q=80"
+    }
+]
 
-with offer2:
-    st.image(
-        "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23"
-        "?auto=format&fit=crop&w=700&q=80",
-        use_container_width=True
-    )
-    st.subheader("🏔️ Mountain Getaways")
-    st.write("Discover the beauty of Manali and Shimla.")
+columns = [offer1, offer2, offer3]
 
-with offer3:
-    st.image(
-        "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a"
-        "?auto=format&fit=crop&w=700&q=80",
-        use_container_width=True
+for index, offer in enumerate(offers):
+
+    final_price = round(
+        offer["original"] * (1 - offer["discount"] / 100)
     )
-    st.subheader("🏰 Cultural Adventures")
-    st.write("Experience Jaipur's heritage, culture and local markets.")
+
+    with columns[index]:
+
+        st.image(
+            offer["image"],
+            use_container_width=True
+        )
+
+        st.subheader(offer["title"])
+        st.caption(offer["destination"])
+
+        st.markdown(
+            f"""
+            <div style="
+                background-color:#E8F5F1;
+                padding:15px;
+                border-radius:12px;
+                text-align:center;
+                border:1px solid #C5E5DB;
+            ">
+                <p style="color:#526777;">
+                    Original Price:
+                    <del>₹{offer['original']:,}</del>
+                </p>
+
+                <h2 style="color:#087E8B;">
+                    ₹{final_price:,}
+                </h2>
+
+                <h3 style="color:#16804A;">
+                    {offer['discount']}% OFF
+                </h3>
+
+                <p style="color:#102A43;">
+                    Coupon Code:
+                    <b>{offer['coupon']}</b>
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        st.caption("Illustrative price per person.")
+
+        if st.button(
+            f"Apply {offer['coupon']}",
+            key=f"coupon_{index}",
+            use_container_width=True
+        ):
+            st.session_state["selected_coupon"] = offer["coupon"]
+            st.session_state["selected_offer_price"] = final_price
+            st.session_state["selected_destination"] = offer["destination"]
+
+            st.success(
+                f"Coupon {offer['coupon']} selected successfully!"
+            )
+
+# ---------- SELECTED DEAL ----------
+
+if "selected_coupon" in st.session_state:
+
+    st.markdown("---")
+    st.subheader("🎟️ Your Selected Deal")
+
+    st.write(
+        f"**Destination:** "
+        f"{st.session_state['selected_destination']}"
+    )
+
+    st.write(
+        f"**Coupon Code:** "
+        f"`{st.session_state['selected_coupon']}`"
+    )
+
+    st.write(
+        f"**Discounted Price:** "
+        f"₹{st.session_state['selected_offer_price']:,}"
+    )
+
+    st.info(
+        "These are demonstration prices, not verified travel quotes. "
+        "Selecting a coupon does not confirm a booking."
+    )
 
 st.markdown("---")
 
