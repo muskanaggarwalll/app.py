@@ -25,7 +25,7 @@ st.set_page_config(
 # Sample prices are estimates, not live travel quotes.
 # ------------------------------------------------------------
 
-DESTINATIONS = {
+DESTINATIONS = {  }
     "Goa": {
         "region": "Coastal Escape",
         "description": "Golden beaches, sunset cafés, coastal drives and relaxed days.",
