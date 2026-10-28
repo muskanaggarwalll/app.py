@@ -19,79 +19,41 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+```python
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
 st.markdown(
     """
-    <style>
-    .wn-navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 24px;
-        margin-bottom: 25px;
-        background-color: #ffffff;
-        border: 1px solid #e8e8e8;
-        border-radius: 14px;
-        font-family: sans-serif;
-    }
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 24px;
+        margin-bottom:25px;
+        background:#ffffff;
+        border:1px solid #e8e8e8;
+        border-radius:14px;
+        font-family:sans-serif;
+    ">
+        <div style="
+            font-size:23px;
+            font-weight:800;
+            color:#087e8b;
+        ">
+            ✈ WANDERNEST
+        </div>
 
-    .wn-logo {
-        font-size: 23px;
-        font-weight: 800;
-        color: #087e8b;
-        letter-spacing: 1px;
-    }
-
-    .wn-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        font-size: 15px;
-    }
-
-    .wn-links a {
-        text-decoration: none;
-        color: #334155;
-        font-weight: 600;
-    }
-
-    .wn-links .wn-button {
-        background-color: #087e8b;
-        color: white;
-        padding: 11px 17px;
-        border-radius: 9px;
-    }
-
-    @media (max-width: 700px) {
-        .wn-navbar {
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .wn-links {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-    }
-    </style>
-
-    <div class="wn-navbar">
-        <div class="wn-logo">✈ WANDERNEST</div>
-
-        <div class="wn-links">
-            <a href="#discover">Discover</a>
-            <a href="#plan">Plan</a>
-            <a href="#budget">Budget</a>
-            <a href="#offers">Offers</a>
-            <a class="wn-button" href="#plan">Plan a trip →</a>
+        <div style="
+            font-size:15px;
+            color:#334155;
+        ">
+            Discover &nbsp;&nbsp; Plan &nbsp;&nbsp; Budget &nbsp;&nbsp; Offers
         </div>
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
-
+```
 # ------------------------------------------------------------
 # 1. DESTINATION DATABASE
 # Sample prices are estimates, not live travel quotes.
