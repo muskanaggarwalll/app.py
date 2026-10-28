@@ -350,6 +350,7 @@ if destination == "Manali":
             selected_attractions.append(attraction)
 
     st.session_state["selected_manali_attractions"] = selected_attractions
+    
 # 4A. GOA ATTRACTIONS
 
 if destination == "Goa":
@@ -379,6 +380,217 @@ if destination == "Goa":
             selected_goa_attractions.append(attraction)
 
     st.session_state["selected_goa_attractions"] = selected_goa_attractions
+
+# 4B. SHIMLA ATTRACTIONS
+
+if destination == "Shimla":
+    st.divider()
+    st.header("🏔️ Explore Shimla Attractions")
+    st.write("Select the places you want to visit during your trip.")
+
+    shimla_attractions = {
+        "In the Heart of the City": [
+            {
+                "name": "The Ridge & Mall Road",
+                "description": "The central hub of Shimla featuring an open-air promenade with panoramic mountain views and a vehicle-free shopping street lined with cafes and handicraft shops."
+            },
+            {
+                "name": "Christ Church",
+                "description": "A prominent neo-Gothic landmark built in 1857, located on The Ridge and known for its stained-glass windows and clock tower."
+            },
+            {
+                "name": "Jakhu Temple & Jakhu Ropeway",
+                "description": "An ancient Hanuman temple perched on Shimla's highest peak, accessible via a scenic ropeway ride."
+            },
+            {
+                "name": "Viceregal Lodge (Rashtrapati Niwas)",
+                "description": "A grand Scottish-Baronial estate from 1888 surrounded by manicured English gardens, where important pre-independence discussions took place."
+            },
+            {
+                "name": "Lakkar Bazaar",
+                "description": "A traditional wooden crafts market near The Ridge, famous for wooden toys, walking sticks, and local souvenirs."
+            }
+        ],
+        "Nature & Nearby Excursions": [
+            {
+                "name": "Kufri",
+                "description": "A nearby hill station featuring the Himalayan Nature Park, Kufri Fun World, and seasonal snow activities."
+            },
+            {
+                "name": "Chadwick Falls",
+                "description": "A waterfall tucked inside a dense deodar and oak forest, offering a peaceful nature walk."
+            },
+            {
+                "name": "Green Valley",
+                "description": "A scenic mountain pass on the way to Kufri, known for its rolling pine forests and photography spots."
+            },
+            {
+                "name": "Kalka-Shimla Toy Train",
+                "description": "A historic UNESCO-listed narrow-gauge railway journey passing through tunnels and dramatic mountain viaducts."
+            }
+        ]
+    }
+
+    selected_shimla_attractions = []
+
+    for category, attractions in shimla_attractions.items():
+        st.subheader(category)
+
+        for attraction in attractions:
+            with st.container(border=True):
+                st.markdown(f"### {attraction['name']}")
+                st.write(attraction["description"])
+
+                if st.checkbox(
+                    f"Add {attraction['name']} to my trip",
+                    key=f"shimla_{attraction['name']}"
+                ):
+                    selected_shimla_attractions.append(attraction["name"])
+
+    st.session_state["selected_shimla_attractions"] = selected_shimla_attractions
+
+# 4C. JAIPUR ATTRACTIONS
+
+if destination == "Jaipur":
+    st.divider()
+    st.header("🏰 Explore Jaipur Attractions")
+    st.write("Select the places you want to visit during your trip.")
+
+    jaipur_attractions = [
+        {
+            "name": "Amber Palace (Amer Fort)",
+            "description": "A majestic 16th-century hilltop fortress combining Rajput and Mughal styles, featuring the glittering Sheesh Mahal and sweeping views of Maota Lake."
+        },
+        {
+            "name": "Hawa Mahal (Palace of Winds)",
+            "description": "An iconic five-storey honeycomb facade with 953 intricate jharokhas, built in 1799 so royal women could observe street life unseen."
+        },
+        {
+            "name": "City Palace",
+            "description": "A sprawling royal residence blending Mughal and Rajput architecture, housing the Maharaja Sawai Man Singh II Museum and beautiful courtyards."
+        },
+        {
+            "name": "Jantar Mantar",
+            "description": "A UNESCO World Heritage Site featuring 19 massive stone astronomical instruments built in the 18th century to track celestial bodies."
+        },
+        {
+            "name": "Nahargarh Fort",
+            "description": "Perched on the Aravalli hills, this fort is renowned for its panoramic sunset views over the Pink City."
+        },
+        {
+            "name": "Jal Mahal",
+            "description": "A picturesque Water Palace sitting in the middle of Man Sagar Lake, best viewed from the lakeside promenade."
+        },
+        {
+            "name": "Albert Hall Museum",
+            "description": "Rajasthan's oldest museum, located in Ram Niwas Garden, showcasing arts, artefacts, and striking Indo-Saracenic architecture."
+        },
+        {
+            "name": "Patrika Gate",
+            "description": "A vibrant, hand-painted architectural gateway at Jawahar Circle Garden, popular for colourful photography."
+        }
+    ]
+
+    selected_jaipur_attractions = []
+
+    for attraction in jaipur_attractions:
+        with st.container(border=True):
+            st.markdown(f"### {attraction['name']}")
+            st.write(attraction["description"])
+
+            if st.checkbox(
+                f"Add {attraction['name']} to my trip",
+                key=f"jaipur_{attraction['name']}"
+            ):
+                selected_jaipur_attractions.append(attraction["name"])
+
+    st.session_state["selected_jaipur_attractions"] = selected_jaipur_attractions
+
+# 4D. KERALA ATTRACTIONS
+
+if destination == "Kerala":
+    st.divider()
+    st.header("🌴 Explore Kerala Attractions")
+    st.write("Select the places you want to visit during your trip.")
+
+    kerala_attractions = {
+        "Hill Stations": [
+            {
+                "name": "Munnar",
+                "description": "Famous for rolling tea plantations, crisp mountain air, and Eravikulam National Park, home to the endangered Nilgiri Tahr."
+            },
+            {
+                "name": "Wayanad",
+                "description": "Known for spice and cardamom plantations, Chembra Peak, and the prehistoric rock carvings of Edakkal Caves."
+            },
+            {
+                "name": "Vagamon",
+                "description": "A quiet retreat featuring rolling green meadows and the triple-hill landscape of Kurisumala, Thangal, and Murugan."
+            }
+        ],
+        "Backwaters & Lakes": [
+            {
+                "name": "Alleppey (Alappuzha)",
+                "description": "Widely called the Venice of the East, famous for overnight houseboat cruises through the tranquil backwaters of Kuttanad."
+            },
+            {
+                "name": "Kumarakom",
+                "description": "Located around Vembanad Lake and ideal for bird watching at the Kumarakom Bird Sanctuary."
+            },
+            {
+                "name": "Munroe Island",
+                "description": "A network of narrow canals where freshwater meets saltwater, offering peaceful canoe tours."
+            }
+        ],
+        "Beaches & Coastal Spots": [
+            {
+                "name": "Varkala",
+                "description": "Famous for dramatic red sandstone cliffs overlooking the Arabian Sea and nearby Edava Beach."
+            },
+            {
+                "name": "Kovalam",
+                "description": "A coastal destination known for crescent-shaped beaches, including Lighthouse Beach."
+            },
+            {
+                "name": "Marari Beach",
+                "description": "A relaxed, uncrowded stretch of golden sand near Alleppey."
+            }
+        ],
+        "Wildlife & Waterfalls": [
+            {
+                "name": "Thekkady",
+                "description": "Famous for boat safaris across Periyar Lake, where visitors may spot wild elephants, gaurs, and birds."
+            },
+            {
+                "name": "Athirappilly Waterfalls",
+                "description": "An impressive waterfall with an approximately 80-foot cascade surrounded by dense rainforest, often called the Niagara of India."
+            }
+        ],
+        "Heritage & Culture": [
+            {
+                "name": "Kochi (Cochin)",
+                "description": "A historic port city featuring Fort Kochi, the iconic Chinese Fishing Nets, Mattancherry Palace, and the Paradesi Synagogue."
+            }
+        ]
+    }
+
+    selected_kerala_attractions = []
+
+    for category, attractions in kerala_attractions.items():
+        st.subheader(category)
+
+        for attraction in attractions:
+            with st.container(border=True):
+                st.markdown(f"### {attraction['name']}")
+                st.write(attraction["description"])
+
+                if st.checkbox(
+                    f"Add {attraction['name']} to my trip",
+                    key=f"kerala_{attraction['name']}"
+                ):
+                    selected_kerala_attractions.append(attraction["name"])
+
+    st.session_state["selected_kerala_attractions"] = selected_kerala_attractions
 
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
