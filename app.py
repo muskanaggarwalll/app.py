@@ -901,7 +901,6 @@ st.write(
     "Discover exciting travel experiences and request "
     "a personalised offer for your next adventure!"
 )
-```python
 # ---------- DISCOUNT COUPON CARDS ----------
 
 offer1, offer2, offer3 = st.columns(3)
