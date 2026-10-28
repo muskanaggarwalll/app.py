@@ -22,50 +22,84 @@ st.set_page_config(
 
 # ---------- WANDERNEST NAVIGATION BAR ----------
 
+nav_style = """
+<style>
+.wn-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 24px;
+    margin-bottom: 30px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    font-family: sans-serif;
+}
+
+.wn-brand {
+    color: #087e8b;
+    font-size: 23px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.wn-navlinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 26px;
+    flex-wrap: wrap;
+}
+
+.wn-navlinks a {
+    color: #334155 !important;
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.wn-navlinks .wn-cta {
+    background: #087e8b;
+    color: white !important;
+    padding: 12px 18px;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .wn-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wn-navlinks {
+        justify-content: flex-start;
+        gap: 15px;
+    }
+}
+</style>
+"""
+
+st.markdown(nav_style, unsafe_allow_html=True)
+
 st.markdown(
     """
-    <div style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:12px 0;
-        margin-bottom:12px;
-        font-family:sans-serif;
-    ">
-        <div style="
-            font-size:23px;
-            font-weight:800;
-            color:#087e8b;
-            white-space:nowrap;
-        ">
-            ✈ WANDERNEST
+    <div class="wn-nav">
+        <div class="wn-brand">✈ WANDERNEST</div>
+        <div class="wn-navlinks">
+            <a href="#discover">Discover</a>
+            <a href="#plan">Plan</a>
+            <a href="#budget">Budget</a>
+            <a href="#offers">Offers</a>
+            <a class="wn-cta" href="#plan">Plan a trip →</a>
         </div>
     </div>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
-
-nav_col1, nav_col2, nav_col3, nav_col4, nav_col5 = st.columns(
-    [1.2, 1, 1, 1, 1.5]
-)
-
-with nav_col1:
-    st.markdown("Discover")
-
-with nav_col2:
-    st.markdown("Plan")
-
-with nav_col3:
-    st.markdown("Budget")
-
-with nav_col4:
-    st.markdown("Offers")
-
-with nav_col5:
-    st.button("Plan a trip →", key="wn_nav_plan")
 
 st.markdown("---")
-
 # ------------------------------------------------------------
 # 1. DESTINATION DATABASE
 # Sample prices are estimates, not live travel quotes.
