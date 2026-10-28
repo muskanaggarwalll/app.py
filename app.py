@@ -763,7 +763,7 @@ with planner_right:
 room_count = st.number_input(
     "Number of hotel rooms",
     min_value=1,
-    max_value=10,
+    max_value=200,
     value=1,
     step=1,
 )
