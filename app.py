@@ -846,7 +846,7 @@ style_multiplier = TRAVEL_STYLES[travel_style]
 
 # ---------- WANDERNEST INSTAGRAM BANNER ----------
 
-st.markdown(
+st.html(
     """
     <div style="background: linear-gradient(135deg, #f5f3eb, #e7efec);
                 padding: 38px 28px; border-radius: 18px;
@@ -877,7 +877,7 @@ st.markdown(
                   border-radius: 6px; text-decoration: none;
                   font-size: 14px; font-weight: 600;">
             Explore WanderNest on Instagram ↗
-        </a>
+            </a>
 
     </div>
     """,
