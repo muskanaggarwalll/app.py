@@ -6,6 +6,9 @@ from urllib.parse import quote
 import csv
 import io
 import html
+# Temporary storage for saved trips
+if "saved_trips" not in st.session_state:
+    st.session_state["saved_trips"] = []
 
 # ============================================================
 # WANDERNEST | TRAVEL PLANNING APPLICATION
@@ -1154,7 +1157,13 @@ if valid_dates:
         character if character.isalnum() else "_"
         for character in destination
     )
-
+    if st.button("💾 Save This Trip", use_container_width=True):
+        st.session_state["saved_trips"].append({
+            "destination": destination,
+            "traveller": traveller_name.strip() or "Traveller",
+            "summary": summary,
+        })
+        st.success("Your trip has been saved for this session!")
     st.download_button(
         label="⬇ Download my WanderNest trip plan",
         data=summary,
