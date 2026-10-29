@@ -6,6 +6,8 @@ from urllib.parse import quote
 import csv
 import io
 import html
+import sqlite3
+import hashlib
 
 # ============================================================
 # WANDERNEST | TRAVEL PLANNING APPLICATION
