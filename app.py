@@ -1030,37 +1030,24 @@ for index, offer in enumerate(offers):
         st.subheader(offer["title"])
         st.caption(offer["destination"])
 
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#E8F5F1;
-                padding:15px;
-                border-radius:12px;
-                text-align:center;
-                border:1px solid #C5E5DB;
-            ">
-                <p style="color:#526777;">
-                    Original Price:
-                    <del>₹{offer['original']:,}</del>
-                </p>
+                # Display coupon prices using Streamlit elements
+        # so HTML tags do not appear as visible text.
+        with st.container(border=True):
 
-                <h2 style="color:#087E8B;">
-                    ₹{final_price:,}
-                </h2>
+            st.caption(
+                f"Original Price: ~~₹{offer['original']:,}~~"
+            )
 
-                <h3 style="color:#16804A;">
-                    {offer['discount']}% OFF
-                </h3>
+            st.markdown(f"## ₹{final_price:,}")
 
-                <p style="color:#102A43;">
-                    Coupon Code:
-                    <b>{offer['coupon']}</b>
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+            st.markdown(
+                f"**:green[{offer['discount']}% OFF]**"
+            )
 
+            st.write(
+                "Coupon Code:",
+                f"`{offer['coupon']}`"
+            )
         st.caption("Illustrative price per person.")
 
         if st.button(
