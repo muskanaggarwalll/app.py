@@ -848,62 +848,37 @@ style_multiplier = TRAVEL_STYLES[travel_style]
 
 st.markdown(
     """
-    <div style="
-        background: linear-gradient(135deg, #f5f3eb, #e7efec);
-        padding: 38px 28px;
-        border-radius: 18px;
-        text-align: center;
-        margin: 25px 0 35px 0;
-        border: 1px solid #dce5df;
-    ">
-        <p style="
-            color: #087e8b;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        ">
+    <div style="background: linear-gradient(135deg, #f5f3eb, #e7efec);
+                padding: 38px 28px; border-radius: 18px;
+                text-align: center; margin: 25px 0 35px 0;
+                border: 1px solid #dce5df;">
+
+        <p style="color: #087e8b; font-size: 12px;
+                  font-weight: 700; letter-spacing: 3px;">
             WANDERNEST JOURNAL
         </p>
 
-        <h2 style="
-            color: #173f40;
-            font-family: Georgia, serif;
-            font-size: 32px;
-            margin-bottom: 12px;
-        ">
+        <h2 style="color: #173f40; font-family: Georgia, serif;
+                   font-size: 32px; margin-bottom: 12px;">
             For the places that stay with you.
         </h2>
 
-        <p style="
-            color: #596b66;
-            font-size: 15px;
-            max-width: 600px;
-            margin: 0 auto 24px auto;
-            line-height: 1.8;
-        ">
+        <p style="color: #596b66; font-size: 15px;
+                  line-height: 1.8; margin-bottom: 24px;">
             Find your next escape through travel inspiration,
             beautiful destinations, and unforgettable experiences.
         </p>
 
-        <a
-            href="https://www.instagram.com/wandernest.official/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="
-                display: inline-block;
-                background: #173f40;
-                color: #ffffff;
-                padding: 13px 26px;
-                border-radius: 6px;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-            "
-        >
+        <a href="https://www.instagram.com/wandernest.official/"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="display: inline-block; background: #173f40;
+                  color: #ffffff; padding: 13px 26px;
+                  border-radius: 6px; text-decoration: none;
+                  font-size: 14px; font-weight: 600;">
             Explore WanderNest on Instagram ↗
         </a>
+
     </div>
     """,
     unsafe_allow_html=True
