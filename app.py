@@ -670,7 +670,10 @@ if destination == "Kerala":
 
 # 5. DESTINATION QUICK BROWSE
 # ------------------------------------------------------------
+# ---------- EXPLORE ALL FIVE DESTINATIONS ----------
+
 st.subheader("Explore all five destinations")
+
 destination_columns = st.columns(len(DESTINATIONS))
 
 for column, (name, details) in zip(
@@ -681,6 +684,8 @@ for column, (name, details) in zip(
         st.image(details["image"], use_container_width=True)
         st.markdown(f"**{name}**")
         st.caption(details["region"])
+st.divider()
+st.header("01 · Explore destinations")
 
 
 # ------------------------------------------------------------
