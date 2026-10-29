@@ -1012,8 +1012,7 @@ st.markdown("---")
 # ==========================================
 # END OF OFFERS & SPECIAL DEALS
 # ==========================================
-st.divider()
-st.header("05 · Your suggested itinerary")
+
 
 st.write(
     f"Here is a sample itinerary for your trip to {destination}."
