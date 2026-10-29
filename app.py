@@ -844,7 +844,6 @@ style_multiplier = TRAVEL_STYLES[travel_style]
 # 8. OPTIONAL TRAVEL PREFERENCES
 # ------------------------------------------------------------
 
-```python
 # ---------- WANDERNEST INSTAGRAM SECTION ----------
 
 st.divider()
