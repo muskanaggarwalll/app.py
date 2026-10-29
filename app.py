@@ -685,8 +685,7 @@ for column, (name, details) in zip(
         st.markdown(f"**{name}**")
         st.caption(details["region"])
 st.divider()
-st.header("01 · Explore destinations")
-
+st.header("Explore destinations")
 
 # ------------------------------------------------------------
 # 6. OPTIONAL LOCATION ACCESS
