@@ -9,6 +9,26 @@ import html
 # Temporary storage for saved trips
 if "saved_trips" not in st.session_state:
     st.session_state["saved_trips"] = []
+# WanderNest Travel — Coastal Gradient Background
+
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(
+        180deg,
+        #DCEEF3 0%,
+        #EAF2F2 35%,
+        #FFF5EB 70%,
+        #FCE8D9 100%
+    ) !important;
+}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: transparent !important;
+}
+</style>
+""", unsafe_allow_html=True)  
 
 # ============================================================
 # WANDERNEST | TRAVEL PLANNING APPLICATION
