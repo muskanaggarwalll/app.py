@@ -1014,32 +1014,6 @@ st.markdown("---")
 # ==========================================
 
 
-st.write(
-    f"Here is a sample itinerary for your trip to {destination}."
-)
-
-for index, (day_label, activity) in enumerate(
-    place["itinerary"],
-    start=1,
-):
-    with st.container(border=True):
-        st.markdown(f"**{day_label}**")
-        st.write(activity)
-
-if 'preferences' in locals() and preferences:
-    st.markdown("**Your interests**")
-    st.write(", ".join(preferences))
-
-if 'special_requests' in locals() and special_requests and special_requests.strip():
-    st.markdown("**Additional preferences**")
-    st.write(special_requests.strip())
-    
-st.info(
-    "The itinerary is a sample suggestion, not a confirmed tour. "
-    "Check local opening hours, weather conditions and transport availability "
-    "before travelling."
-)
-
 # ------------------------------------------------------------
 # 11. MAP SEARCH
 # ------------------------------------------------------------
