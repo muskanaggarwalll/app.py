@@ -1025,7 +1025,7 @@ for index, (day_label, activity) in enumerate(
         st.markdown(f"**{day_label}**")
         st.write(activity)
 
-if preferences:
+if 'preferences' in locals() and preferences:
     st.markdown("**Your interests**")
     st.write(", ".join(preferences))
 
