@@ -789,8 +789,6 @@ st.link_button(
     use_container_width=True
 )
 
-st.divider()
-
 # ---------- END OF WANDERNEST INSTAGRAM SECTION ----------
 
 # 9. TRAVEL BUDGET CALCULATOR
