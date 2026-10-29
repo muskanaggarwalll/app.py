@@ -92,8 +92,8 @@ st.markdown(
             <a href="#plan">Plan</a>
             <a href="#budget">Budget</a>
             <a href="#offers">Offers</a>
-          <a href="#explore-destinations">Plan a trip →</a>
-        </div>
+<a href="#explore-destinations" style="background: #E8754A; color: white; padding: 10px 18px; border-radius: 24px; font-weight: 600; text-decoration: none; display: inline-block;">Plan a trip →</a>
+</div>
     </div>
     """,
     unsafe_allow_html=True
