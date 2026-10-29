@@ -92,7 +92,7 @@ st.markdown(
             <a href="#plan">Plan</a>
             <a href="#budget">Budget</a>
             <a href="#offers">Offers</a>
-            <a class="wn-cta" href="#plan">Plan a trip →</a>
+            <a class="wn-cta" href="#discover">Plan a trip →</a>
         </div>
     </div>
     """,
