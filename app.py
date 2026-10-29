@@ -1032,7 +1032,7 @@ if 'preferences' in locals() and preferences:
 if 'special_requests' in locals() and special_requests and special_requests.strip():
     st.markdown("**Additional preferences**")
     st.write(special_requests.strip())
-
+    
 st.info(
     "The itinerary is a sample suggestion, not a confirmed tour. "
     "Check local opening hours, weather conditions and transport availability "
@@ -1127,8 +1127,7 @@ TRAVEL PREFERENCES
 {', '.join(preferences) if 'preferences' in locals() and preferences else 'No preferences selected'}
 
 Additional requests:
-{special_requests.strip() or 'None provided'}
-
+{special_requests.strip() if 'special_requests' in locals() and special_requests else 'None provided'}
 ESTIMATED BUDGET
 --------------------------------------------------
 Hotel: ₹{hotel_cost:,}
