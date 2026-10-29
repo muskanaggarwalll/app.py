@@ -1029,7 +1029,7 @@ if 'preferences' in locals() and preferences:
     st.markdown("**Your interests**")
     st.write(", ".join(preferences))
 
-if special_requests.strip():
+if 'special_requests' in locals() and special_requests and special_requests.strip():
     st.markdown("**Additional preferences**")
     st.write(special_requests.strip())
 
