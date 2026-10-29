@@ -92,7 +92,7 @@ st.markdown(
             <a href="#plan">Plan</a>
             <a href="#budget">Budget</a>
             <a href="#offers">Offers</a>
-           <a href="#discover">Plan a trip →</a>
+          <a href="#explore-destinations">Plan a trip →</a>
         </div>
     </div>
     """,
@@ -373,6 +373,7 @@ st.markdown(
 # ------------------------------------------------------------
 
 st.divider()
+st.markdown('<div id="explore-destinations"></div>', unsafe_allow_html=True)
 st.header("01 · Explore destinations")
 
 destination = st.selectbox(
