@@ -764,18 +764,6 @@ with st.expander("Use my current browser location"):
         height=150,
     )
 
-manual_location = st.text_input(
-    "Starting city or location (optional)",
-    placeholder="Example: Delhi, India",
-    help="Enter a city or area to help personalise your trip plan.",
-)
-
-if manual_location.strip():
-    maps_url = (
-        "https://www.google.com/maps/search/?api=1&query="
-        + quote(manual_location.strip())
-    )
-    st.markdown(f"[View this location on Google Maps]({maps_url})")
 
 # ------------------------------------------------------------
 # 7. TRIP PLANNER
@@ -1131,6 +1119,32 @@ st.info(
 
 st.divider()
 st.header("06 · Explore your destination on a map")
+
+manual_location = st.text_input(
+    "Starting city or location (optional)",
+    placeholder="Example: Delhi, India",
+    help="Enter your starting city to get directions to your destination.",
+    key="map_starting_location",
+)
+
+if manual_location.strip():
+    maps_url = (
+        "https://www.google.com/maps/dir/"
+        + quote(manual_location.strip())
+        + "/"
+        + quote(destination)
+    )
+    st.markdown(
+        f"[Get directions from {manual_location} to {destination} on Google Maps ↗]({maps_url})"
+    )
+else:
+    maps_url = (
+        "https://www.google.com/maps/search/?api=1&query="
+        + quote(destination)
+    )
+    st.markdown(
+        f"[Explore {destination} on Google Maps ↗]({maps_url})"
+    )
 
 map_url = (
     "https://www.google.com/maps/search/?api=1&query="
