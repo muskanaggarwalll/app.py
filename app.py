@@ -844,70 +844,34 @@ style_multiplier = TRAVEL_STYLES[travel_style]
 # 8. OPTIONAL TRAVEL PREFERENCES
 # ------------------------------------------------------------
 
-# ---------- WANDERNEST INSTAGRAM BANNER ----------
+```python
+# ---------- WANDERNEST INSTAGRAM SECTION ----------
 
-st.markdown("---")
+st.divider()
 
 st.markdown(
-    """
-    <div style="
-        background: linear-gradient(135deg, #f5f3eb, #e7efec);
-        padding: 38px 28px;
-        border-radius: 18px;
-        text-align: center;
-        margin: 25px 0 35px 0;
-        border: 1px solid #dce5df;
-    ">
-        <p style="
-            color: #087e8b;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        ">
-            WANDERNEST JOURNAL
-        </p>
-
-        <h2 style="
-            color: #173f40;
-            font-family: Georgia, serif;
-            font-size: 30px;
-            margin-bottom: 12px;
-        ">
-            For the places that stay with you.
-        </h2>
-
-        <p style="
-            color: #596b66;
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        ">
-            Find your next escape through travel inspiration,
-            beautiful destinations, and unforgettable experiences.
-        </p>
-
-        <a href="https://www.instagram.com/wandernest.official/"
-           target="_blank"
-           rel="noopener noreferrer"
-           style="
-               display: inline-block;
-               background: #173f40;
-               color: #ffffff;
-               padding: 13px 26px;
-               border-radius: 6px;
-               text-decoration: none;
-               font-size: 14px;
-               font-weight: 600;
-           ">
-            Explore WanderNest on Instagram ↗
-        </a>
-    </div>
-    """,
+    "<p style='color:#087e8b; font-size:12px; "
+    "font-weight:700; letter-spacing:3px;'>"
+    "WANDERNEST JOURNAL</p>",
     unsafe_allow_html=True
 )
 
-st.markdown("---")
+st.markdown("## For the places that stay with you.")
+
+st.write(
+    "Discover destinations, travel inspiration, "
+    "and ideas for your next escape."
+)
+
+st.link_button(
+    "📸 Explore WanderNest on Instagram ↗",
+    "https://www.instagram.com/wandernest.official/",
+    use_container_width=True
+)
+
+st.divider()
+
+# ---------- END OF WANDERNEST INSTAGRAM SECTION ----------
 
 # 9. TRAVEL BUDGET CALCULATOR
 
