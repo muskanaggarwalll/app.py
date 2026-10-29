@@ -611,7 +611,7 @@ if destination == "Kerala":
             },
             {
                 "name": "Kumarakom",
-                "description": "Located around Vembanad Lake and ideal for bird watching at the Kumarakom Bird Sanctuary."
+                "description": "Locatst.header("03 · Plan your trip")ed around Vembanad Lake and ideal for bird watching at the Kumarakom Bird Sanctuary."
             },
             {
                 "name": "Munroe Island",
@@ -690,7 +690,7 @@ for column, (name, details) in zip(
 # ------------------------------------------------------------
 
 st.divider()
-st.header("03 · Plan your trip")
+st.header("02 · Plan your trip")
 
 today = date.today()
 default_start = today + timedelta(days=7)
@@ -799,7 +799,7 @@ st.divider()
 # ------------------------------------------------------------
 
 st.divider()
-st.header("04 · Estimate your travel budget")
+st.header("03 · Estimate your travel budget")
 
 valid_dates = end_date > start_date
 
