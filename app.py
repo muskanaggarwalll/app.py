@@ -611,7 +611,7 @@ if destination == "Kerala":
             },
             {
                 "name": "Kumarakom",
-                "description": "Locatst.header("03 · Plan your trip")ed around Vembanad Lake and ideal for bird watching at the Kumarakom Bird Sanctuary."
+                "description": "Located around Vembanad Lake and ideal for bird watching at the Kumarakom Bird Sanctuary."
             },
             {
                 "name": "Munroe Island",
