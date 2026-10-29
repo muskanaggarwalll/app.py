@@ -1177,7 +1177,24 @@ else:
         disabled=True,
         use_container_width=True,
     )
+# ------------------------------------------------------------
+# MY SAVED TRIPS
+# ------------------------------------------------------------
 
+st.divider()
+st.header("❤️ My Saved Trips")
+
+if not st.session_state["saved_trips"]:
+    st.info("You haven't saved any trips yet.")
+else:
+    for i, trip in enumerate(st.session_state["saved_trips"]):
+        with st.expander(f"✈️ {trip['destination']}"):
+            st.caption(f"Traveller: {trip['traveller']}")
+            st.text(trip["summary"])
+
+            if st.button("🗑️ Delete Trip", key=f"delete_trip_{i}"):
+                st.session_state["saved_trips"].pop(i)
+                st.rerun()
 # ------------------------------------------------------------
 # 13. DOWNLOAD BUDGET AS CSV
 # ------------------------------------------------------------
