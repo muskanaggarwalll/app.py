@@ -1124,7 +1124,7 @@ Number of hotel rooms: {room_total}
 
 TRAVEL PREFERENCES
 --------------------------------------------------
-{', '.join(preferences) if preferences else 'No preferences selected'}
+{', '.join(preferences) if 'preferences' in locals() and preferences else 'No preferences selected'}
 
 Additional requests:
 {special_requests.strip() or 'None provided'}
