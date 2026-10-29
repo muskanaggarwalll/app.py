@@ -684,9 +684,8 @@ for column, (name, details) in zip(
         st.image(details["image"], use_container_width=True)
         st.markdown(f"**{name}**")
         st.caption(details["region"])
-st.divider()
 
-# ------------------------------------------------------------
+# -----------------------------------------------------------
 # 6. OPTIONAL LOCATION ACCESS
 # ------------------------------------------------------------
 
